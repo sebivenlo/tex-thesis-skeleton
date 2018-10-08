@@ -1,0 +1,50 @@
+\section*{Information Page}
+
+Fontys Hogeschool Techniek en Logistiek\\
+Postbus 141, 5900 AC Venlo
+
+\vspace*{1cm}
+\noindent
+\documentname\
+
+\vspace{1cm}
+
+\begin{infoblock}
+Name of student: & \studentname\\
+Student number: & \snumber\\
+Course: & \course\\
+Period: & \period\\
+\end{infoblock}
+
+\begin{infoblock}
+Company name: & \companyname\\
+Address: & \companyaddress\\
+Postcode, City: & \companypostcodecity\\
+Country: & \companycountry\\
+\end{infoblock}
+
+\begin{infoblock}
+Company coach: & \companycoach\\
+Email: & \texttt{\href{mailto:\companycoachmail}{\companycoachmail}}\\
+University coach: & \universitytutor\\
+Email: & \texttt{\href{mailto:\universitytutormail}{\universitytutormail}}\\
+\end{infoblock}
+
+\ifx\examinator\empty
+  \relax
+\else
+	\ifx\externalexpert\empty
+		\relax
+	\else
+	  \begin{infoblock}
+  	  Examinator: & \examinator\\
+     External domain expert: & \externalexpert\\
+     \end{infoblock}
+	\fi
+\fi
+
+
+\begin{infoblock}
+Non-disclosure agreement: & \hasnda
+\end{infoblock}
+\clearpage

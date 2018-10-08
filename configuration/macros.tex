@@ -1,0 +1,31 @@
+%----------------------------------------------------------
+% DO NOT TOUCH THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING
+%----------------------------------------------------------
+
+
+% environment for a two column table with proper alignment
+% usage
+% \begin{infoblock}
+% Property: & Info
+% \end{infoblock}
+\newenvironment{infoblock}{
+\begin{table}[h!]
+\begin{tabular}{@{}p{0.25\textwidth}l}
+}{
+\end{tabular}
+\end{table}
+}
+
+% Simple command for a fancy that attracts attention.
+% usage:
+% \LongQuote{the text you are quoting}{the name of the author}
+% Any name can be passed (e.g. \citet{author2000text})
+\newcommand{\LongQuote}[2]{
+\begin{flushright}
+	\begin{minipage}{.9\linewidth}
+	\textit{#1}
+	\end{minipage}
+
+	\textit{#2}
+\end{flushright}
+}

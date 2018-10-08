@@ -1,0 +1,66 @@
+%----------------------------------------------------------
+% DO NOT TOUCH THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING
+%----------------------------------------------------------
+
+
+\documentclass[a4paper,twosided,11pt]{report}
+\usepackage[ngerman,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[pdftex,scale={.8,.8}]{geometry}
+\usepackage{layout}
+\usepackage{fancybox}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\usepackage{%
+  array,
+  booktabs,
+  dcolumn,
+  rotating,
+  shortvrb,
+  units,
+  url,
+  lastpage,
+  longtable,
+  lscape,
+  multirow,
+  amssymb,
+  amsmath,
+  float,
+  chngpage,
+  colortbl,times,
+}
+\usepackage[toc,acronym]{glossaries}
+\usepackage[left,pagewise,modulo]{lineno}
+\usepackage{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5\baselineskip}
+
+
+\usepackage{metainfo}
+\providecommand{\MineOnlyStart}{}
+\providecommand{\MineOnlyEnd}{}
+
+\input{configuration/macros}
+
+\usepackage{natbib}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+% this alters "before" spacing (the second length argument) to 0
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+
+\fancypagestyle{chapter-header-style}{
+	\fancyhead[LE,RO]{\thepage}
+	\fancyhead[RE,LO]{\chaptername\ \thechapter\ --\ \leftmark}
+}
+
+\renewcommand{\chaptermark}[1]{%
+	\markboth{#1}{}}

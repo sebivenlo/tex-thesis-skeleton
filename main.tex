@@ -1,0 +1,66 @@
+\include{configuration/thesis_config}
+
+% provide data for title page
+\title{\textbf{Your Thesis Title Here} \\ Bachelor Thesis}
+\author{Your Name}
+\def\place{Earth}
+\date{\place, \today}
+
+% provide data for information page
+\def\documentname{Bachelor Thesis}
+\def\studentname{Your Name}
+\def\snumber{1234567}
+\def\course{Informatics - Business Informatics/Software Engineering}
+\def\period{Month Year - Month Year}
+\def\companyname{Company Name}
+\def\companyaddress{Default Street 123}
+\def\companypostcodecity{1234 AB, Amsterdam}
+\def\companycountry{The Netherlands}
+\def\companycoach{Coach Name}
+\def\companycoachmail{coach.email@example.com}
+\def\universitytutor{Tutor Name}
+\def\universitytutormail{tutor.email@fontys.nl}
+\def\examinator{Examinator Name}
+\def\externalexpert{TBD}
+\def\hasnda{No}
+
+\begin{document}
+	
+\maketitle
+
+% Define roman numbering for the pages that do not belong to the main content
+\pagenumbering{Roman} 
+
+% Include all the pre-chapters
+\input{partials/informationpage}
+\include{partials/preface}
+\include{partials/summary_en}
+\include{partials/summary_nl_de}
+
+\input{partials/statementofauthenticity}
+
+\tableofcontents
+
+\clearpage
+
+% Define arabic numbering for the pages that belong to the main content
+\pagenumbering{arabic} 
+
+% Define page heading style
+\pagestyle{chapter-header-style}
+
+% Include chapters
+\include{chapters/chapter_1}
+\include{chapters/chapter_2}
+\include{chapters/chapter_3}
+\include{chapters/chapter_4}
+\include{chapters/chapter_5}
+\include{chapters/chapter_6}
+\include{chapters/chapter_7}
+
+% Set bibliography style to Harvard
+\bibliographystyle{agsm}
+
+% Add the bibliography at the end
+\bibliography{references}
+\end{document}
