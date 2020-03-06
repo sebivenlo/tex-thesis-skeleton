@@ -36,7 +36,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{.5\baselineskip}
 
-
+\usepackage{lipsum}
 \usepackage{metainfo}
 \providecommand{\MineOnlyStart}{}
 \providecommand{\MineOnlyEnd}{}
@@ -44,13 +44,16 @@
 \input{configuration/macros}
 
 \usepackage{natbib}
+\usepackage[nottoc]{tocbibind}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{adjustbox}
 \usepackage[toc,page]{appendix}
 
-\titleformat{\chapter}[display]
-{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+%\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
 % this alters "before" spacing (the second length argument) to 0
 \titlespacing*{\chapter}{0pt}{0pt}{40pt}
@@ -70,8 +73,18 @@
 \addto\captionsdutch{%
   \renewcommand\appendixname{Bijlagen}
   \renewcommand\appendixpagename{Bijlage}
+  \renewcommand{\refname}{Referenties}
+  \renewcommand{\bibname}{Referenties}
+}
+\addto\captionsenglish{%
+  \renewcommand\appendixname{Bijlagen}
+  \renewcommand\appendixpagename{Bijlage}
+  \renewcommand{\refname}{References}
+  \renewcommand{\bibname}{References}
 }
 \addto\captionsgerman{%
   \renewcommand\appendixname{Anhänge}
   \renewcommand\appendixpagename{Anhang}
+  \renewcommand{\refname}{Verweise}
+  \renewcommand{\bibname}{Verweise}
 }

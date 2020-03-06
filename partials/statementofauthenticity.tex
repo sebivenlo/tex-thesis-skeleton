@@ -1,5 +1,6 @@
 \addcontentsline{toc}{chapter}{Statement of Authenticity}
 \section*{Statement of Authenticity}
+\sloppypar
 I, the undersigned, hereby certify that I have compiled and written the attached document / piece of work and the underlying work without assistance from anyone except the specifically assigned academic supervisors and examiners. This work is solely my own, and I am solely responsible for the content, organization, and making of this document / piece of work.
 
 I hereby acknowledge that I have read the instructions for preparation and submission of documents / pieces of work provided by my course / my academic institution, and I understand that this document / piece of work will not be accepted for evaluation or for the award of academic credits if it is determined that it has not been prepared in compliance with those instructions and this statement of authenticity.
@@ -14,9 +15,14 @@ I further certify that I did not commit plagiarism, did neither take over nor pa
   Place/Date: & \place, \today
 \end{infoblock}
 
-\vspace*{1cm}
+Signature:  \\
+\IfFileExists{authicenty_signature.png}{%
+  \hspace{2cm}%
+  \includegraphics[width=.4\linewidth]{authicenty_signature.png}%
+}{\fbox{\begin{minipage}{.6\linewidth}\sloppypar
+      If you add a file called \texttt{authicenty\_signature.png} to root
+      folder of your build, that will be included as signature here, instead of this text block.
+    \end{minipage}
+  }}
 
-\begin{infoblock}
-Signature: &
-\end{infoblock}
 \clearpage

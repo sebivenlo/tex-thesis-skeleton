@@ -1,24 +1,27 @@
 \def\InformationPageTitle{Information Page}
-\InputIfFileExists{infopage.tex}{}{\def\InformationPageTitle{Information Page}}
+\InputIfFileExists{infopage.txt}{%
+  \section*{Information Page}}{%
+  \section*{Please define proper data in file infopage.txt}%
+}
 \providecommand\InformationPageTitle{Information Page}
-\section*{\InformationPageTitle}
+%\section*{\InformationPageTitle}
 %% provide default values
-\providecommand\documentname{Bachelor Thesis, def in file infopage.tex}
-\providecommand\studentname{Your Name, def in file infopage.tex}
-\providecommand\snumber{1234567 def in file infopage.tex}
+\providecommand\documentname{Bachelor Thesis, def in file infopage.txt}
+\providecommand\studentname{Your Name, def in file infopage.txt}
+\providecommand\snumber{1234567 def in file infopage.txt}
 \providecommand\course{Informatics - Business Informatics/Software Engineering}
-\providecommand\period{Month Year - Month Year,def in file infopage.tex}
-\providecommand\companyname{Company Name, def in file infopage.tex}
-\providecommand\companyaddress{Default Street 123, def in file infopage.tex}
-\providecommand\companypostcodecity{1234 AB, Amsterdam, def in file infopage.tex}
-\providecommand\companycountry{The Netherlands, def in file infopage.tex}
-\providecommand\companycoach{Coach Name, def in file infopage.tex}
-\providecommand\companycoachmail{coach.email@example.com, def in file infopage.tex}
-\providecommand\universitytutor{Tutor Name, def in file infopage.tex}
-\providecommand\universitytutormail{tutor.email@fontys.nl, def in file infopage.tex}
-\providecommand\examinator{Examinator Name, def in file infopage.tex}
-\providecommand\externalexpert{TBD, def in file infopage.tex}
-\providecommand\hasnda{No, def in file infopage.tex}
+\providecommand\period{Month Year - Month Year,def in file infopage.txt}
+\providecommand\companyname{Company Name, def in file infopage.txt}
+\providecommand\companyaddress{Default Street 123, def in file infopage.txt}
+\providecommand\companypostcodecity{1234 AB, Amsterdam, def in file infopage.txt}
+\providecommand\companycountry{The Netherlands, def in file infopage.txt}
+\providecommand\companycoach{Coach Name, def in file infopage.txt}
+\providecommand\companycoachmail{coach.email@example.com, def in file infopage.txt}
+\providecommand\universitytutor{Tutor Name, def in file infopage.txt}
+\providecommand\universitytutormail{tutor.email@fontys.nl, def in file infopage.txt}
+\providecommand\examinator{Examinator Name, def in file infopage.txt}
+\providecommand\externalexpert{TBD, def in file infopage.txt}
+\providecommand\hasnda{No, def in file infopage.txt}
 
 
 Fontys Hogeschool Techniek en Logistiek\\

@@ -1,8 +1,8 @@
 %% for a german thesis use english,ngerman, the last is default.
-%% for dutch use \def\Languages{english,ducth}
-\def\Languages{ngerman,english,dutch}
+%% for dutch use \def\Languages{english,dutch}
+\def\Languages{english,dutch,ngerman}
 \include{configuration/thesis_config}
-\selectlanguage{dutch}
+
 % provide data for title page
 \title{\textbf{Your Thesis Title Here} \\ Bachelor Thesis}
 \author{Your Name}
@@ -32,7 +32,7 @@
 \clearpage
 \listoftables
 \clearpage
-
+\IfFileExists{linenumberingOn}{\linenumbers}{}
 % Define arabic numbering for the pages that belong to the main content
 \pagenumbering{arabic} 
 

@@ -12,10 +12,16 @@ pdflatex main.tex
 ```
 
 ## Get it running on windows
-- Install MiKTeX    https://miktex.org/
+- Install MiKTeX    https://miktex.org/ HOM: use TexLive.
 - Install Perl      http://strawberryperl.com/ 
-- Then build it
+- Then build it. HOM: use the make file 
 
 ```
-latexmk -pdf
+# latexmk -pdf
+
+make
+
 ```
+
+On linux, mac install texlive and you are good to go.
+
