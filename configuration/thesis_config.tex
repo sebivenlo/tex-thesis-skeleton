@@ -2,9 +2,9 @@
 % DO NOT TOUCH THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING
 %----------------------------------------------------------
 
-
+\providecommand\Languages{dutch,ngerman,english}
 \documentclass[a4paper,twosided,11pt]{report}
-\usepackage[ngerman,english]{babel}
+\usepackage[\Languages]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[pdftex,scale={.8,.8}]{geometry}
@@ -65,4 +65,13 @@
 }
 
 \renewcommand{\chaptermark}[1]{%
-	\markboth{#1}{}}
+  \markboth{#1}{}}
+
+\addto\captionsdutch{%
+  \renewcommand\appendixname{Bijlagen}
+  \renewcommand\appendixpagename{Bijlage}
+}
+\addto\captionsgerman{%
+  \renewcommand\appendixname{Anhänge}
+  \renewcommand\appendixpagename{Anhang}
+}

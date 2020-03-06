@@ -1,4 +1,25 @@
-\section*{Information Page}
+\def\InformationPageTitle{Information Page}
+\InputIfFileExists{infopage.tex}{}{\def\InformationPageTitle{Information Page}}
+\providecommand\InformationPageTitle{Information Page}
+\section*{\InformationPageTitle}
+%% provide default values
+\providecommand\documentname{Bachelor Thesis, def in file infopage.tex}
+\providecommand\studentname{Your Name, def in file infopage.tex}
+\providecommand\snumber{1234567 def in file infopage.tex}
+\providecommand\course{Informatics - Business Informatics/Software Engineering}
+\providecommand\period{Month Year - Month Year,def in file infopage.tex}
+\providecommand\companyname{Company Name, def in file infopage.tex}
+\providecommand\companyaddress{Default Street 123, def in file infopage.tex}
+\providecommand\companypostcodecity{1234 AB, Amsterdam, def in file infopage.tex}
+\providecommand\companycountry{The Netherlands, def in file infopage.tex}
+\providecommand\companycoach{Coach Name, def in file infopage.tex}
+\providecommand\companycoachmail{coach.email@example.com, def in file infopage.tex}
+\providecommand\universitytutor{Tutor Name, def in file infopage.tex}
+\providecommand\universitytutormail{tutor.email@fontys.nl, def in file infopage.tex}
+\providecommand\examinator{Examinator Name, def in file infopage.tex}
+\providecommand\externalexpert{TBD, def in file infopage.tex}
+\providecommand\hasnda{No, def in file infopage.tex}
+
 
 Fontys Hogeschool Techniek en Logistiek\\
 Postbus 141, 5900 AC Venlo
@@ -31,16 +52,16 @@ Email: & \texttt{\href{mailto:\universitytutormail}{\universitytutormail}}\\
 \end{infoblock}
 
 \ifx\examinator\empty
-  \relax
+\relax
 \else
-	\ifx\externalexpert\empty
-		\relax
-	\else
-	  \begin{infoblock}
-  	  Examinator: & \examinator\\
-     External domain expert: & \externalexpert\\
-     \end{infoblock}
-	\fi
+\ifx\externalexpert\empty
+\relax
+\else
+\begin{infoblock}
+  Examinator: & \examinator\\
+  External domain expert: & \externalexpert\\
+\end{infoblock}
+\fi
 \fi
 
 
