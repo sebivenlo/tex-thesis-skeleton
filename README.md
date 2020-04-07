@@ -26,7 +26,8 @@ Remember, if you do that, please keep a link in your README.md to this one for c
 
 ### Use this as a template repository
 
-Another option is to use this as template repository, just click on **use as tempmlate** button.
+Another option is to use this as template repository, just click on **use htis template** button.
+
 <img width="136" alt="image" src="https://user-images.githubusercontent.com/764295/78676875-54943900-78e7-11ea-9e5d-a23cab84ef24.png">
 
 
