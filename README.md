@@ -24,6 +24,12 @@ I you want to have a **private** repository, this is not possible if you fork a 
 
 Remember, if you do that, please keep a link in your README.md to this one for crediting. Thx!
 
+### Use this as a template repository
+
+Another option is to use this as template repository, just click on **use as tempmlate** button.
+<img width="136" alt="image" src="https://user-images.githubusercontent.com/764295/78676875-54943900-78e7-11ea-9e5d-a23cab84ef24.png">
+
+
 ## Get it running manually on your machine
 
 This manual building can be done also if you forked it or created an own repository. 
