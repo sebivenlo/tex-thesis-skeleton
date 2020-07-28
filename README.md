@@ -59,4 +59,5 @@ On linux, mac install texlive and you are good to go.
 latexmk -pdf
 ```
 
-
+## Optional configuration
+You may enable line numbering by creating an empty file in the root directory named `linenumberingOn`.
