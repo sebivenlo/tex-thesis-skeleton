@@ -1,4 +1,4 @@
-![CI](https://github.com/sebivenlo/tex-thesis-skeleton/workflows/CI/badge.svg)
+![CI](https://github.com/sebivenlo/tex-thesis-skeleton/workflows/CI/badge.svg) 
 
 # tex-thesis-skeleton
 A more simplified TEX thesis template that compiles without problems. This could be used for students for their bachelor/master thesis. 
