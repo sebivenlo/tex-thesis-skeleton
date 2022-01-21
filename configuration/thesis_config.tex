@@ -1,9 +1,20 @@
 %----------------------------------------------------------
 % DO NOT TOUCH THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING
 %----------------------------------------------------------
+\InputIfFileExists{infopage.txt}{%
+  \def\InfoMissingWarning{}
+}{%
+  \def\InfoMissingWarning{
+    
+    {\centering \Large \bf The information in this page is not correct, please
+      provide the information in the document infopage.txt in the root of this TeX project.}
+
+    You can find an example infopage.text file name infopage.txt-example. One approach is copy and edit the copy.
+  }
+}
 
 \providecommand\Languages{dutch,ngerman,english}
-\documentclass[a4paper,twosided,11pt]{report}
+\documentclass[a4paper,twoside,11pt]{report}
 \usepackage[\Languages]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -88,3 +99,24 @@
   \renewcommand{\refname}{Verweise}
   \renewcommand{\bibname}{Verweise}
 }
+%% to speed up building, include only what is in ./IncludeOnly.tex
+\providecommand\DefInfo[1]{ define \textbackslash{}#1 in file ``./infopage.txt''}
+\providecommand\documentname{\DefInfo{documentname}}
+\providecommand\studentname{\DefInfo{studentname}}
+\providecommand\place{\DefInfo{place}}
+\providecommand\snumber{\DefInfo{snummer}}
+\providecommand\course{\DefInfo{course}}
+\providecommand\period{\DefInfo{period}}
+\providecommand\companyname{\DefInfo{CompanyName}}
+\providecommand\companyaddress{\DefInfo{CompanyAddress}}
+\providecommand\companypostcodecity{\DefInfo{companypostcodecity}}
+\providecommand\companycountry{\DefInfo{companycountry}}
+\providecommand\companycoach{\DefInfo{companycoach}}
+\providecommand\companycoachmail{\DefInfo{companycoachmail}}
+\providecommand\universitytutor{\DefInfo{universitytutor}}
+\providecommand\universitytutormail{\DefInfo{universitytutormail}}
+\providecommand\examiner{\DefInfo{examiner}}
+\providecommand\externalexpert{\DefInfo{externalexpert}}
+\providecommand\hasnda{\DefInfo{hasnda}}
+
+\InputIfFileExists{IncludeOnly.tex}{}{}

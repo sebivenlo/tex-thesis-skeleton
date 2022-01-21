@@ -1,12 +1,14 @@
 %% for a german thesis use english,ngerman, the last is default.
 %% for dutch use \def\Languages{english,dutch}
-\def\Languages{english,dutch,ngerman}
+%% for English use \def\Languages{english},
+%% or \def\Languages{english,british} if you prefer british as English style
+\def\Languages{english,ngerman,dutch}
 \include{configuration/thesis_config}
-
+%\includeonly{chapters/chapter_1}
 % provide data for title page
-\title{\textbf{Your Thesis Title Here} \\ Bachelor Thesis}
-\author{Your Name}
-\def\place{Earth}
+\IfFileExists{linenumberingOn}{\linenumbers}{}
+\title{\documentname}
+\author{\studentname}
 \date{\place, \today}
 
 % remember to provide data for information page in infopage.tex
@@ -16,7 +18,7 @@
 \maketitle
 
 % Define roman numbering for the pages that do not belong to the main content
-\pagenumbering{Roman} 
+\pagenumbering{roman} 
 
 % Include all the pre-chapters
 \input{partials/informationpage}
@@ -25,14 +27,9 @@
 \include{partials/summary_nl_de}
 
 \input{partials/statementofauthenticity}
+%% usual tables like table of contents, table of figures etc.
+\input{partials/preambletables}
 
-\tableofcontents
-\clearpage
-\listoffigures
-\clearpage
-\listoftables
-\clearpage
-\IfFileExists{linenumberingOn}{\linenumbers}{}
 % Define arabic numbering for the pages that belong to the main content
 \pagenumbering{arabic} 
 

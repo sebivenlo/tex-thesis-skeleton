@@ -1,7 +1,8 @@
 %% set the proper data here.
-\def\documentname{Bachelor Thesis}
-\def\studentname{Your Name}
+\def\documentname{My Bachelor Thesis}
+\def\studentname{Pietje Bell}
 \def\snumber{1234567}
+\def\place{Venlo}
 \def\course{Informatics - Business Informatics/Software Engineering}
 \def\period{Month Year - Month Year}
 \def\companyname{Company Name}
@@ -10,8 +11,8 @@
 \def\companycountry{The Netherlands}
 \def\companycoach{Coach Name}
 \def\companycoachmail{coach.email@example.com}
-\def\universitytutor{Johnny Make You Feel Good}
+\def\universitytutor{Johnny Makes You Feel Good}
 \def\universitytutormail{tutor.email@fontys.nl}
-\def\examinator{Examinator Name}
-\def\externalexpert{TBD}
+\def\examiner{Dr V. Strict}
+\def\externalexpert{A. Einstein}
 \def\hasnda{No}

@@ -1,27 +1,20 @@
 \def\InformationPageTitle{Information Page}
-\InputIfFileExists{infopage.txt}{%
-  \section*{Information Page}}{%
-  \section*{Please define proper data in file infopage.txt}%
-}
 \providecommand\InformationPageTitle{Information Page}
+\InputIfFileExists{infopage.txt}{%
+  \def\InfoMissingWarning{}
+}{%
+  \def\InfoMissingWarning{
+    
+    {\centering \Large \bf The information in this page is not correct, please
+      provide the information in the document infopage.txt in the root of this TeX project.}
+
+    You can find an example infopage.text file name infopage.txt-example. One approach is copy and edit the copy.
+  }
+}
+\section*{\InformationPageTitle}
+\InfoMissingWarning
 %\section*{\InformationPageTitle}
 %% provide default values
-\providecommand\documentname{Bachelor Thesis, def in file infopage.txt}
-\providecommand\studentname{Your Name, def in file infopage.txt}
-\providecommand\snumber{1234567 def in file infopage.txt}
-\providecommand\course{Informatics - Business Informatics/Software Engineering}
-\providecommand\period{Month Year - Month Year,def in file infopage.txt}
-\providecommand\companyname{Company Name, def in file infopage.txt}
-\providecommand\companyaddress{Default Street 123, def in file infopage.txt}
-\providecommand\companypostcodecity{1234 AB, Amsterdam, def in file infopage.txt}
-\providecommand\companycountry{The Netherlands, def in file infopage.txt}
-\providecommand\companycoach{Coach Name, def in file infopage.txt}
-\providecommand\companycoachmail{coach.email@example.com, def in file infopage.txt}
-\providecommand\universitytutor{Tutor Name, def in file infopage.txt}
-\providecommand\universitytutormail{tutor.email@fontys.nl, def in file infopage.txt}
-\providecommand\examinator{Examinator Name, def in file infopage.txt}
-\providecommand\externalexpert{TBD, def in file infopage.txt}
-\providecommand\hasnda{No, def in file infopage.txt}
 
 
 Fontys Hogeschool Techniek en Logistiek\\
@@ -29,7 +22,10 @@ Postbus 141, 5900 AC Venlo
 
 \vspace*{1cm}
 \noindent
-\documentname\
+{\centering \Large\bfseries
+  \documentname
+
+}
 
 \vspace{1cm}
 
@@ -54,14 +50,14 @@ University coach: & \universitytutor\\
 Email: & \texttt{\href{mailto:\universitytutormail}{\universitytutormail}}\\
 \end{infoblock}
 
-\ifx\examinator\empty
+\ifx\examiner\empty
 \relax
 \else
 \ifx\externalexpert\empty
 \relax
 \else
 \begin{infoblock}
-  Examinator: & \examinator\\
+  Examinator: & \examiner\\
   External domain expert: & \externalexpert\\
 \end{infoblock}
 \fi

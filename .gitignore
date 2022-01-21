@@ -11,7 +11,8 @@
 *.cb
 *.cb2
 .*.lb
-
+*~
+out
 ## Intermediate documents:
 *.dvi
 *.xdv
@@ -242,3 +243,5 @@ TSWLatexianTemp*
 *.spl
 /main.pdf
 /example.pdf
+# do not put your personal signature in any repo
+authenticity_signature.png
