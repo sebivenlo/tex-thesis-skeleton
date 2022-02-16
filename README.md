@@ -61,3 +61,13 @@ latexmk -pdf
 
 ## Optional configuration
 You may enable line numbering by creating an empty file in the root directory named `linenumberingOn`.
+
+## Build the pdf without using terminal
+*(Tested on Mac)*
+
+Add the following line at the top of the `main.tex` file
+```latex
+% !TEX TS-program = pdflatexmk
+``` 
+
+You can now generate the pdf by pressing `CMD+T` or by going to the Menu bar -> Typeset -> Typeset.
