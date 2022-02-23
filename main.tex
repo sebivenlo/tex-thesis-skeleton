@@ -14,7 +14,7 @@
 % remember to provide data for information page in infopage.tex
 
 \begin{document}
-	
+\IfFileExists{IncludeOnly.tex}{}{%
 \maketitle
 
 % Define roman numbering for the pages that do not belong to the main content
@@ -29,6 +29,7 @@
 \input{partials/statementofauthenticity}
 %% usual tables like table of contents, table of figures etc.
 \input{partials/preambletables}
+}
 
 % Define arabic numbering for the pages that belong to the main content
 \pagenumbering{arabic} 
@@ -47,6 +48,9 @@
 
 \include{partials/self_reflection}
 
+%% supress post file when not required
+\IfFileExists{IncludeOnly.tex}{}{%
+
 % Set bibliography style to Harvard
 \bibliographystyle{agsm}
 
@@ -57,5 +61,5 @@
 \begin{appendices}
 	\include{partials/appendix}
 \end{appendices}
-
+}
 \end{document}
