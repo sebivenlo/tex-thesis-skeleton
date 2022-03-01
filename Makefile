@@ -1,6 +1,12 @@
 
+# for use with xelatexd
 LATEX=./latexw
 BIBTEX=./bibtexw
+## for use with default latex
+# LATEX=pdflatex
+# BIBTEX=bibtex
+
+## if you use xelatex for better funt and utf-8 handling replace latexw and pdflatex with xelatexw and xelatex
 all: main.pdf
 fast: fast.pdf
 
