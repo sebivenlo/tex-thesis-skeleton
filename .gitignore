@@ -13,6 +13,8 @@
 .*.lb
 *~
 out
+main.pdf
+
 ## Intermediate documents:
 *.dvi
 *.xdv
