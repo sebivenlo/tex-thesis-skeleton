@@ -243,7 +243,6 @@ TSWLatexianTemp*
 
 # generated if using elsarticle.cls
 *.spl
-/main.pdf
 /example.pdf
 # do not put your personal signature in any repo
 authenticity_signature.png
