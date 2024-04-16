@@ -7,7 +7,14 @@ Many thanks to [Jurian Janssen](https://github.com/Woeler) for setting this up.
 
 ## Get it running automatically via CI on github
 
-This is the preferred version, as you can use your github repository as automated build system. It can also build your PDF file automatically.
+Although possible, it has the follwinf drawbacks:
+
+* It increases your waiting time when doing edit compile verify, which is quite normal when working with source code.
+* It is more wasteful, energy wise. Uploading to the remote machine, have the server compile and get the result back costs cpu cycles in the whole chain. It may also cost you
+your credits on the server infra structure.
+
+
+If you stil insist, you can use your github repository as automated build system. It can also build your PDF file automatically.
 
 - If you now click on "Actions" tab
 - then on on a finished build
@@ -68,3 +75,4 @@ you latex commands inside the container. The Makefile in this directory shows ho
 
 ## Optional configuration
 You may enable line numbering by creating an empty file in the root directory named `linenumberingOn.tex`.
+
