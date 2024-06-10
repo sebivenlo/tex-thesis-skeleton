@@ -5,11 +5,7 @@ A more simplified TEX thesis template that compiles without problems. This could
 
 Many thanks to [Jurian Janssen](https://github.com/Woeler) for setting this up.
 
-### Your own repository
-
-If you want to have a **private** repository, this is not possible if you fork a public repository.
-
-### Use this as a template repository
+## Use this as a template repository
 
 Your option is to use this as a template repository, by just clicking on **use htis template** button.
 
@@ -31,15 +27,18 @@ pdflatex main.tex
 ```
 make
 ```
-On linux, mac install texlive and you are good to go.
+On linux, or mac, install texlive and you are good to go. With a modern Windows and git-bash you can do the same thing.
 
 ## Get it running on windows
+- install git-bash (the github windows tools)
 - Install TexLive.
 - Install Perl      http://strawberryperl.com/
 - Then build it.
 - to make make work on windows use git-bash and use chocolaty to install gnu make.
 
-### Build with windows via make
-```
-make 
-```
+
+## Build of overleaf
+
+With the free version of overleaf, you can zip the contents of your repo and copy that over and then continue working on overleaf.
+You are advised to make a regular backup and use that backup to version it to say github.
+For the free version they do not provide any guarantees, the professional version can however connect to a versioning system like github.
