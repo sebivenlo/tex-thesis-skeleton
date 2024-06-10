@@ -1,0 +1,68 @@
+\begin{savequote}[15cm]
+  \vspace{-30mm}
+  \sffamily\raggedleft
+  At all costs, avoid complexity. That rule is a life saver.
+  \qauthor{A Seasoned Engineer.}
+\end{savequote}
+\chapter{Counting words made simple}
+
+It is mandatory to include the word count of your thesis in the
+information page. There are many constructs shown on the Internet but
+we choose to go for the simplest solution possible.
+
+\section{What to count}
+It is resonable to only count the words in the report proper.
+This implies only counting the words in the chapters, which is easy
+enough by using the \texttt{texcount} command with a \define{glob} for the
+chapters: \texttt{chapters/*.tex}
+
+\section{How to count}
+\begin{lstlisting}[language=sh]
+texcount  -inc -sum  -1 chapters/*.tex > wordcount.txt
+\end{lstlisting}
+
+This file is then simply read inside the info block using \texttt{\textbackslash{}input}:
+\begin{lstlisting}[language=TeX,emph={wordcount,txt},emphstyle={\colorbox{Yellow}},morekeywords={begin,end}]
+\begin{infoblock}
+  word count: & \input{wordcount.txt} words.
+\end{infoblock}
+\end{lstlisting}
+in the \texttt{partials/informationpage.tex} file.
+
+\section{When to count}
+To make sure that the word count in the file is updated in the
+whenever a chapter file changes, we use the Makefile.
+
+In the Makefile we make the \texttt{wordcount.txt} file dependent on the
+chapter files with this simple rule:
+
+\begin{lstlisting}[language=make,showtabs]
+wordcount.txt: chapters/*.tex
+	texcount  -inc -sum  -1 chapters/*.tex > wordcount.txt
+\end{lstlisting}
+
+and make the main.pdf file dependent on the \texttt{wordcount.txt} file as
+well.
+
+When that does not work for you, maybe because you cannot or will not
+use \texttt{make} in your environment, then execute the
+\texttt{texcount} as given above in the terminal.
+
+Even simpler, delete the \texttt{wordcount.txt} file and run pdflatex
+on your main document again. That is arranged with the little bit of
+\LaTeX{} code in the \texttt{configuration/thesis\_config.tex} file.
+For that to work you need to run latex with the \texttt{-shell-escape} switch.
+
+\begin{lstlisting}[language=TeX,emph={wordcount,txt},emphstyle={\colorbox{Yellow}},morekeywords={begin,end}]
+\IfFileExists{wordcount.txt}{}{
+  % not exists
+  \immediate\write18{texcount -inc -sum -1 chapters/*.tex > wordcount.txt}
+}
+
+\end{lstlisting}
+
+
+
+By the way, we have if you are on Windows: we have good experience
+with git bash + make installed via chocolaty, so you might want to try
+that too.

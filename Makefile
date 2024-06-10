@@ -1,32 +1,35 @@
+# Makefile for LaTeX.
+.SUFFIXES=
+.SUFFIXES=.tex .pdf
 
-# for use with xelatexd
-LATEX=./latexw
-BIBTEX=./bibtexw
-## for use with default latex
-LATEX=pdflatex -output-directory out -recorder -synctex 15 -interaction=batchmode
-BIBTEX=bibtex
-# if you want to use xelatexd comment the two lines above this one.
+LATEX=pdflatex -recorder -output-directory=out -synctex 15 -shell-escape
+BIBTEX=biber --output-directory=out --input-directory=out
+DEPENDENCIES=partials/* configuration/*.tex chapters/*.tex images/*.pdf images/*.pdf images/*.jpg appendix/* ./*.png tables/*.* wordcount.txt
 
-## if you use xelatex for better font and utf-8 handling replace latexw and pdflatex with xelatexw and xelatex.
 all: main.pdf
+
 fast: fast.pdf
 
-main.pdf: main.tex partials/*.tex configuration/*.tex chapters/*.tex \
-	 *.png
-	mkdir -p out/partials out/configuration out/chapters
+main.pdf: main.tex out $(DEPENDENCIES)
 	$(LATEX) main.tex
 	$(LATEX) main.tex
-	$(BIBTEX) out/main
+	$(BIBTEX) main
+	makeglossaries -d out main
 	$(LATEX) main.tex
 	$(LATEX) main.tex
 	ln -sf out/*.pdf .
 
-fast.pdf: main.tex partials/*.tex configuration/*.tex chapters/*.tex \
-	 *.png
-	mkdir -p out/partials out/configuration out/chapters
+fast.pdf: main.tex out $(DEPENDENCIES)
 	$(LATEX) main.tex
-	ln -sf out/*.pdf .
+	ln -sf out/*.pdf fast.pdf
+
+out:
+	mkdir -p out/chapters out/partials out/appendix
+
+wordcount.txt: chapters/*.tex
+	texcount  -inc -sum  -1 chapters/*.tex > wordcount.txt
 
 clean:
-	rm -fr out
+	rm -fr out *.aux *.log *.synctex *.bbl *.lof *.toc *.out *.bcf *.blg wordcount.txt main.acn main.glo main.lot\
+		main.run.xml *.synctex* main.xdy  
 	rm -f main.pdf

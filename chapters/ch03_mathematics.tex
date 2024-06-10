@@ -1,0 +1,122 @@
+\def\TheFile{ch03_mathematics.tex}
+% Line numbering does not work well with diplay math? 
+% that is why I use the following macro
+% to end a paragraph just before a displaymath
+% without getting to much vertical space
+\newcommand\premathpar{\vspace{-2\parskip}\par}
+% To have linenumbering, add a \par before each displaymath
+% The text below was taken from the sample.tex document by 
+% \author{Matthias K. Gobbert}
+\begin{savequote}[15cm]
+  \vspace{-30mm}
+  \raggedleft
+  \sffamily
+  Beautiful math is the purpose of \TeX\ and \LaTeX.
+  \qauthor{Mantra of \TeX-ies}
+\end{savequote}
+\chapter{Mathematics to show off}
+% first some definitions
+% some personal command definitions as examples:
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\rh}{\rho}
+\newcommand{\mtheta}{\vartheta}
+\newcommand{\ph}{\varphi}
+% this command is for partial derivatives and takes 2 input arguments:
+\newcommand{\der}[2]{\frac{\partial {#1}}{\partial {#2}}}
+
+Here, you see how a mathematical equation can be generated in line, for
+instance, $f(x) = \frac{1}{1+25 x^2}$.
+The \verb+$+-symbols enclose the formula.
+As a so-called displayed formula, it would look like\premathpar
+\begin{displaymath}
+  f(x) = \frac{1}{1+25 x^2}.
+\end{displaymath}
+It is customary that mathematical functions are \emph{not} set in math italics,
+so \LaTeX\ has the basic ones pre-defined; you should use the commands
+\verb+\cos+, \verb+\exp+, etc.\ to get $f_1(x) = \cos x$,
+$f_2(x) = - e^{-xt} \sin^2 x$, etc.
+
+Here, I use some of my commands defined above: I like $\eps = \varepsilon$
+better than the default $\epsilon$. A partial derivative (with 2 arguments)
+would be obtained as follows. If $f(x,y) = x^2 y^3$, then \premathpar
+\begin{displaymath}
+  \der{f}{x} = 2 x y^3, \quad \der{f}{y} = 3 x^2 y^2.
+\end{displaymath}
+\section{Sums and Integrals}
+When you say ``capital sigma,'' you probably did not really mean $\Sigma$,
+but rather a summation symbol. You would get that as in\premathpar
+\begin{displaymath}
+  \sum_{i=0}^{\infty} r^i = \frac{1}{1 - r} \quad \mbox{for all $|r| < 1$}.
+\end{displaymath}
+Finally, we have\premathpar
+\begin{displaymath}
+  \int_0^1 \sin(2 \pi x) \, dx = 0
+\end{displaymath}
+and\premathpar
+\begin{displaymath}
+  \int \! \! \int f(x) g(y) \, dx \, dy = \int f(x) \, dx \,\, \int g(y) dy.
+\end{displaymath}
+Here, \verb+\,+ gives a small space, while \verb+\!+ forces things closer
+together; you have to work on the proper spacing for integrals, as \LaTeX\
+does not understand, what is going on.
+\clearpage % hack to move section to next page
+\section{Matrices in \LaTeX}
+A matrix $A \in \mathrm{R}^{m \times n}$ could be defined by\premathpar
+\begin{displaymath}
+  A = \left( \begin{array}{ccccc}
+        11     & 12     & 13     & \cdots & 1n     \\
+        21     & 22     & 23     & \cdots & 2n     \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        m1     & m2     & m3     & \cdots & mn     \\
+      \end{array} \right)
+\end{displaymath}
+Here, the word \verb+dots+ in the commands stands for an ellipsis
+(i.e., three dots) placed horizontally in the center (\verb+\cdots+),
+vertically (\verb+\vdots+), or diagonally (\verb+\ddots+); what is
+not mentioned is \verb+\ldots+ for horizontal dots at the baseline.
+Use the baseline or central version as appropriate, for instance\premathpar
+\begin{eqnarray*}
+  a_1, a_2, \ldots, a_n & \mbox{and not} & a_1, a_2, \cdots, a_n, \\
+  a_1 + a_2 + \cdots + a_n & \mbox{and not} & a_1 + a_2 + \ldots + a_n, \\
+\end{eqnarray*}
+
+Some more comments on the matrix are needed, I suppose:
+The \verb+\left(+ and \verb+\right)+ create the variable-sized parentheses
+around the actual array of terms. You can also use \verb+\left[+ and
+\verb+\right]+, or \verb+\left\{+ and \verb+\right\}+ in other situations.
+The actual array arrangement is accomplished by the \verb+array+ environment.
+The argument \verb+ccccc+ indicates that there are five columns
+and you want the entries centered (``c''), other options are left (``l'')
+and right (``r''). Notice how \verb+&+ separate columns and \verb+\\+
+the rows.
+
+Here is another matrix example.
+A matrix multiply used with 3D graphics:
+\begin{displaymath}
+  \left[ \begin{array}{cccc}
+        R_{11} & R_{12} & R_{13} & 0 \\
+        R_{21} & R_{22} & R_{23} & 0 \\
+        R_{31} & R_{32} & R_{33} & 0 \\
+        0      & 0      & 0       & 1
+    \end{array} \right]
+  \cdot
+  \left[ \begin{array}{cccc}
+      1 & 0 & 0 & X \\
+      0 & 1 & 0 & Y \\
+      0 & 0 & 1 & Z \\
+      0 & 0 & 0 & 1
+  \end{array} \right] 
+=  \left[ \begin{array}{cccc}
+        R_{11} & R_{12} & R_{13} & T_x \\
+        R_{21} & R_{22} & R_{23} & T_y \\
+        R_{31} & R_{32} & R_{33} & T_z \\
+        0      & 0      & 0       & 1
+  \end{array} \right] 
+\end{displaymath}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

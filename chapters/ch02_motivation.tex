@@ -1,0 +1,61 @@
+\def\TheFile{ch02_motivates.tex}
+
+\begin{savequote}[15cm]
+  \vspace{-30mm}
+  \raggedleft
+  \sffamily
+  What moves, motivates
+  \qauthor{Ancient wisdom of technical teachers}
+\end{savequote}
+\chapter{Motivation}
+To write a simple document, like a letter, a word processing package 
+is just fine.
+To automate the creation of a document this is a bit harder. 
+Using a word processor to automatically create a consistent document from 
+unrelated sources is difficult at best, if doable at all.
+
+However, as long as the only thing that those unrelated sources should
+produce are simple ASCII documents, things get much more
+doable. It is like comparing HTML to Microsoft Word documents. The power
+you have in defining the layout of a document in HTML (combined with
+css) with a ``simple'' ASCII document is almost as powerful as what you
+can do with Word. But now try writing the same thing with a (self-written) program. You know it is easy in HTML (certainly if you ever
+did some programming with e.g. PHP), but producing a Word document with
+a program is hard work\footnote{It becomes easier in a modern version of
+word processing packages, they tend to use XML as their internal document format}. 
+
+If the document should include complex things like mathematical
+formulas that are laid out properly, it becomes difficult in HTML too.
+
+Enter \LaTeX.
+
+\section{Multi-person literal work}
+One of the much-overlooked advantages of \LaTeX (and of any multi-file
+source code application like Java projects) is that the fact that you
+can split up the document into multiple but still coherent parts.
+This fact allows you to work on one final document with multiple
+persons as team members. This is exactly what the informatics teachers do when writing a report for external evaluation.
+
+This makes \LaTeX\ almost ideal for project work in which several
+authors have to contribute to the final product and where source files
+are shared using a repository. Even more so in
+cases where you want to include (part of) program source code
+into the document to explain or show certain implementation
+aspects. Such source code is not copied and pasted but instead read
+on the fly from the original file(s) during text processing. This
+allows you to always have the most up-to-date version.
+
+As this sample is a multipart document, it can be used as a reference
+or a start for your document.
+
+
+\section{Good documentation and online support}
+%% this paragraph to show dual use of citations.
+Most documentation can be found online. Overleaf has very good documentation. Overleaf has as its main product a build service for \LaTeX\ documents and many students are using and have used it successfully.
+
+The original sources of the \LaTeX\ documentation are Lesly Lamports \LaTeX\ Book \textcite{latexbook}, and expanded on that is the \LaTeX\ Companion \parencite{latexcompanion}.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main.tex"
+%%% End: 

@@ -1,7 +1,18 @@
-\chapter{Title of appendix A}
-
-bla bla
-
-\chapter{Title of appendix B}
-
-bla bla
+\begin{appendices}
+\thispagestyle{empty}
+    \renewcommand*{\thepage}{\thechapter-\arabic{page}}%
+%% use appendix id + and number as page number.
+\pretocmd{\chapter}{%
+    \clearpage%
+    \renewcommand*{\thepage}{\thechapter-\arabic{page}}%
+  }{}{}
+  % reset page numbers for appendix
+  \pagenumbering{arabic}
+  \include{appendix/macros}
+  \pagenumbering{arabic}
+  \include{appendix/includelistings}
+  \pagenumbering{arabic}
+  \include{appendix/pdfpages}
+  \pagenumbering{arabic}
+  \include{appendix/wordcount}
+\end{appendices}

@@ -1,0 +1,57 @@
+% macros used in results table developed with Torben Westphalen.
+
+\providecommand\itemcell[1]{%
+  %\mbox{% uncomment for debug 
+  \begin{minipage}[t]{\linewidth}%
+      \begin{itemize}[leftmargin=3.5ex]%
+        #1
+      \end{itemize}%
+  \end{minipage}\vspace{.4\baselineskip}%
+  %}% uncomment
+}
+
+\providecommand\headcell[1]{%
+  \begin{minipage}[c]{\linewidth}
+    \vspace{.2\baselineskip}%
+    \raggedright%
+    \textbf{#1}
+  \end{minipage}\vspace{.4\baselineskip}%
+}
+
+\providecommand\firstcell[1]{%
+  \cellcolor{Gray}%
+  \begin{minipage}[c]{\linewidth}%
+    \vspace{.2\baselineskip}%
+    \raggedright%
+    \textbf{#1}
+  \end{minipage}\vspace{.4\baselineskip}%
+}
+
+\providecommand\textcell[1]{%
+  \fbox{%
+    \begin{minipage}[t]{\linewidth}%
+      \raggedright%
+      #1
+  \end{minipage}}\vspace{.4\baselineskip}%
+}
+\usepackage{longtable}
+
+%% some widgets used in the table.
+\newlength{\BulletSize}
+\setlength{\BulletSize}{1.5ex}
+\definecolor{Gray}{gray}{0.9} % color used in table borders
+\newlength{\TabColumnWidth} % for tables
+\newcommand\CheckMarkGreen[1]{\includegraphics[height=#1]{images/Check_Green_White.pdf}\hspace{2pt}}
+\newcommand\CMark{\raisebox{-.1\BulletSize}{\CheckMarkGreen{\BulletSize}}}
+\newcommand\CrossMarkRed[1]{\includegraphics[height=#1]{images/Cross_red_circle.pdf}\hspace{2pt}}
+\newcommand\XMark{\raisebox{-.1\BulletSize}{\CrossMarkRed{\BulletSize}}}
+\newcommand\WarningMarkYellow[1]{\includegraphics[height=#1]{images/Alert_Yellow_White.pdf}\hspace{2pt}}
+\newcommand\WMark{\raisebox{-.1\BulletSize}{\WarningMarkYellow{\BulletSize}}}
+\newcommand\FirstCell[1]{\cellcolor{Gray}\thead{#1}}
+\newcommand\URLIcon[1]{\includegraphics[height=#1]{images/URL.pdf}\hspace{2pt}}
+\newcommand\UMark{\raisebox{-.1\BulletSize}{\URLIcon{\BulletSize}}}
+\newcommand\itemC{\item[\CMark]}
+\newcommand\itemX{\item[\XMark]}
+\newcommand\itemW{\item[\WMark]}
+\newcommand\itemU{\item[\UMark]}
+\newcommand\MyURL[2]{\url{#1}{\UMark #1}}

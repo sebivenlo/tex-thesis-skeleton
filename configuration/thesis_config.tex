@@ -1,29 +1,59 @@
 %----------------------------------------------------------
 % DO NOT TOUCH THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING
 %----------------------------------------------------------
-\InputIfFileExists{infopage.txt}{%
-  \def\InfoMissingWarning{}
-}{%
-  \def\InfoMissingWarning{
-    
-    {\centering \Large \bf The information in this page is not correct, please
-      provide the information in the document infopage.txt in the root of this TeX project.}
-
-    You can find an example infopage.text file name infopage.txt-example. One approach is copy and edit the copy.
-  }
-}
+\input{configuration/processinfopage}
 
 \providecommand\Languages{dutch,ngerman,english}
-\documentclass[a4paper,twoside,11pt]{report}
-\usepackage[\Languages]{babel}
+\documentclass[a4paper,11pt]{report}
+% load early
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[pdftex,scale={.8,.8}]{geometry}
-\usepackage{layout}
+
+%% citation and bibliography style.
+%% This style depends on 'sortname' and 'shorthand' fields in the bib file.
+%% This gives you control on what is shown in the labels.
+%% If you ommit the shorthand, the styles fall back to a numeric label.
+\usepackage[
+backend=biber,
+hyperref=true,
+backref=true,
+]{biblatex}
+\DefineBibliographyStrings{english}{
+  backrefpage={cited on p.},
+  backrefpages={cited on pp.}
+}
+% end citation bibliography style.
+
+% support multiple languages.
+\usepackage[\Languages]{babel}
+% define page layout
+\usepackage[a4paper,includemp,pdftex,
+      top=20mm,left=20mm,
+      total={180mm,260mm},
+      includeheadfoot,
+      marginparwidth=30mm,
+%      showframe % for debugging
+      ]{geometry}
+      %%
+\newcommand\Margin[1]{\marginpar{\sffamily\textbf{#1}}}
+
+%\usepackage{layout}
+      
 \usepackage{fancybox}
 \usepackage[pdftex]{graphicx}
-\usepackage{fancyhdr}
+\usepackage{times}
+\usepackage{varioref}
+% Use multiple references to the same footnote
+
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{wrapfig}
+\usepackage{varioref}
 \usepackage[dvipsnames]{xcolor}
+\usepackage[avantgarde]{quotchap}
+\usepackage{tikz}
+% allow compact lists etc.
+\usepackage{enumitem}
 \usepackage{%
   array,
   booktabs,
@@ -33,59 +63,150 @@
   units,
   url,
   lastpage,
-  longtable,
   lscape,
   multirow,
   amssymb,
   amsmath,
   float,
   chngpage,
-  colortbl,times
+  colortbl,
+  times,
+  csquotes,
 }
-\usepackage[toc,acronym]{glossaries}
-\usepackage[left,pagewise,modulo]{lineno}
-\usepackage{hyperref}
+
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{-}
+\usepackage{listings}
+\lstset{numbers=right} % to get out of the way with document line numbers
+\definecolor{listinggray}{gray}{0.2}
+\definecolor{lbcolor}{rgb}{0.95,0.98,0.98}
+
+%% settings for listings and code snippets.
+\lstset{
+  backgroundcolor=\color{lbcolor},
+  tabsize=4,
+  %	rulecolor=,
+  language=java,
+  basicstyle=\scriptsize,
+  upquote=true,
+  aboveskip={1.5\baselineskip},
+  columns=fixed,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+  frame=single,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  identifierstyle=\ttfamily\bfseries\color{Black},
+  keywordstyle=\color{Violet}\bfseries,%[rgb]{0,0,1},
+  commentstyle=\color{Sepia},
+  xleftmargin=3.4pt, %% small margins
+  xrightmargin=7.4pt, %% margin into marginparsep
+  stringstyle=\color[rgb]{0.627,0.126,0.941}
+}
+
+%% to show bibtex entries in listintgs examples chapter.
+\makeatother
+\lstdefinelanguage{BibTeX}
+{keywords={%
+    @article,@book,@collectedbook,@conference,@electronic,@ieeetranbstctl,%
+    @inbook,@incollectedbook,@incollection,@injournal,@inproceedings,%
+    @manual,@mastersthesis,@misc,@patent,@periodical,@phdthesis,@preamble,%
+    @proceedings,@standard,@string,@techreport,@unpublished%
+  },
+  comment=[l][\itshape]{@comment},
+  sensitive=false,
+}
+
+\usepackage[final]{pdfpages}
+
+% definitions for line numbers modulo 3, tiny gray
+\usepackage[pagewise,mathlines,displaymath]{lineno}
+%\setpagewiselinenumbers
+\modulolinenumbers[3]
+\renewcommand{\linenumberfont}{\normalfont\tiny\color{gray}}
+\IfFileExists{linenumberingOn}{\linenumbers}{}
+%% end line numbers def
+
+%% hyperref usage, link colors 
+\usepackage[unicode]{hyperref}
 \hypersetup{
   colorlinks=true,
   colorlinks=true,
-  linkcolor=blue,
-  filecolor=magenta,
+  linkcolor=BlueViolet,
+  filecolor=DarkOrchid,
   citecolor=PineGreen,
-   urlcolor=RoyalPurple,
+  urlcolor=RoyalPurple,
+  pdfinfo={
+    Title={\documentname},
+    Subject={\subject},
+    Author={\studentname\ \snumber},
+    Keywords={\keywords},
+  }
 }
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{.5\baselineskip}
+%%  pick up definitions from info page
 
+%% end hyperref
+\usepackage[toc,acronym,xindy]{glossaries-extra}
+\setabbreviationstyle[acronym]{short-long}
+
+%%
+
+\usepackage{cleveref}[2012/02/15]
+\crefformat{footnote}{#2\footnotemark[#1]#3}
+
+%% add blindtext for demo
 \usepackage{lipsum}
 \usepackage{metainfo}
 \providecommand{\MineOnlyStart}{}
 \providecommand{\MineOnlyEnd}{}
 
 \input{configuration/macros}
+\input{configuration/longtablemacros}
 
-\usepackage{natbib}
+%\usepackage{natbib}
 \usepackage[nottoc]{tocbibind}
 \usepackage{titlesec}
-\usepackage{fancyhdr}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.5\baselineskip}
 \usepackage{adjustbox}
-\usepackage[toc,page]{appendix}
+\usepackage[toc,page,title,titletoc,header]{appendix}
 
-%\titleformat{\chapter}[display]{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+% chapter section titles theme.
 \definecolor{gray75}{gray}{0.75}
 \newcommand{\hsp}{\hspace{20pt}}
 \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
 % this alters "before" spacing (the second length argument) to 0
 \titlespacing*{\chapter}{0pt}{0pt}{40pt}
+\titlespacing{\chapter}{0pt}{-25mm}{40pt}
 
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot[C]{\thepage}
+%% define local fancy header styles
+\usepackage{fancyhdr}
+\addtolength\headwidth\marginparwidth
+\addtolength\headwidth\marginparsep
+\fancypagestyle{fancy}{%
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+}
 
 \fancypagestyle{chapter-header-style}{
-	\fancyhead[LE,RO]{\thepage}
-	\fancyhead[RE,LO]{\chaptername\ \thechapter\ --\ \leftmark}
+  \fancyhead[LE,RO]{\thepage}
+  \fancyhead[RE,LO]{\chaptername\ \thechapter\ --\ \leftmark}
+  \fancyfoot{}
 }
+
+%% in the appendix the page numbers are per appendix chapter
+\fancypagestyle{appendix}{
+  \fancyhf{}
+  \fancyhead[LE,RO]{\thepage}
+%  \fancyhead[RE,LO]{\chaptername\ \thechapter\ --\ \leftmark}
+  \fancyfoot{}
+}
+
+\pagestyle{fancy}
 
 \renewcommand{\chaptermark}[1]{%
   \markboth{#1}{}}
@@ -96,36 +217,36 @@
   \renewcommand{\refname}{Referenties}
   \renewcommand{\bibname}{Referenties}
 }
-\addto\captionsenglish{%
-  \renewcommand\appendixname{Appendices}
-  \renewcommand\appendixpagename{Appendix}
-  \renewcommand{\refname}{References}
-  \renewcommand{\bibname}{References}
-}
 \addto\captionsgerman{%
   \renewcommand\appendixname{Anhänge}
   \renewcommand\appendixpagename{Anhang}
   \renewcommand{\refname}{Verweise}
   \renewcommand{\bibname}{Verweise}
 }
-%% to speed up building, include only what is in ./IncludeOnly.tex
-\providecommand\DefInfo[1]{ define \textbackslash{}#1 in file ``./infopage.txt''}
-\providecommand\documentname{\DefInfo{documentname}}
-\providecommand\studentname{\DefInfo{studentname}}
-\providecommand\place{\DefInfo{place}}
-\providecommand\snumber{\DefInfo{snummer}}
-\providecommand\course{\DefInfo{course}}
-\providecommand\period{\DefInfo{period}}
-\providecommand\companyname{\DefInfo{CompanyName}}
-\providecommand\companyaddress{\DefInfo{CompanyAddress}}
-\providecommand\companypostcodecity{\DefInfo{companypostcodecity}}
-\providecommand\companycountry{\DefInfo{companycountry}}
-\providecommand\companycoach{\DefInfo{companycoach}}
-\providecommand\companycoachmail{\DefInfo{companycoachmail}}
-\providecommand\universitytutor{\DefInfo{universitytutor}}
-\providecommand\universitytutormail{\DefInfo{universitytutormail}}
-\providecommand\examiner{\DefInfo{examiner}}
-\providecommand\externalexpert{\DefInfo{externalexpert}}
-\providecommand\hasnda{\DefInfo{hasnda}}
+
+% This macro '\define' puts the argument in em 
+% and in boldface in the margin.
+\providecommand{\define}[1]{% 1 argument
+  \mbox{}{\textit{#1}}% italics or em
+  \marginpar{\raggedright% no adjust
+    \bfseries\hspace{0pt}#1}% bold
+} % end of macro
+\newcommand\Code[1]{\textbf{\texttt{#1}\ }}
+\newcolumntype{g}[1]{%
+    >{\raggedright\arraybackslash}%
+    p{#1}%
+}
+
+\usepackage[avantgarde]{quotchap}
+\renewcommand\chapterheadstartvskip{\vspace*{-5\baselineskip}}
+
+\definecolor{codegray}{gray}{0.9}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+\usepackage{moreverb}
+\IfFileExists{wordcount.txt}{}{
+  % not exists
+  \immediate\write18{texcount  -inc -sum  -1 chapters/*.tex > wordcount.txt}
+}
+
 
 \InputIfFileExists{IncludeOnly.tex}{}{}

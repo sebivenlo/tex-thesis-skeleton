@@ -1,0 +1,18 @@
+\chapter{Some macro examples}
+
+The first macro defines a new environment.
+An environment is something with $\backslash$begin\{environmentname\} and $\backslash$end\{environmentname\}, like an itemize list.
+I wanted to tweak the standard lengths that are used, because I found the defaults a bit too spacy.
+
+\begin{lstlisting}[caption={Tighter itemize}]
+\newenvironment{Itemize} {
+  \begin{itemize}{}% start of envionment with all the settings
+    \setlength\topsep{0ex}%
+    \setlength\parskip{0ex}%
+    \setlength\partopsep{0em}%
+    \setlength\parsep{0em}%
+    \setlength\itemsep{0em}%
+  }{\end{itemize}% end of the environmet
+}
+\end{lstlisting}
+

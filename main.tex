@@ -4,32 +4,34 @@
 %% or \def\Languages{english,british} if you prefer british as English style
 \def\Languages{ngerman,dutch,english}
 \input{configuration/thesis_config}
-%\includeonly{chapters/chapter_1}
 % provide data for title page
-\IfFileExists{linenumberingOn}{\linenumbers}{}
 \title{\documentname}
-\author{\studentname}
+\author{\studentname,\snumber}
 \date{\place, \today}
+\addbibresource{references.bib}
+% \addbibresource{SEN2Bibliography.bib}
+% \addbibresource{biblatex-examples.bib}
 
-% remember to provide data for information page in infopage.tex
-
+% add glossary
+\makeglossaries
+\setglossarystyle{long3colheader}
+\loadglsentries{partials/glossary.tex}
+%\includeonly{chapters/ch10_tablestables}
 \begin{document}
-\IfFileExists{IncludeOnly.tex}{}{%
+\pagenumbering{roman}
+\setpagewiselinenumbers
+
 \maketitle
 
 % Define roman numbering for the pages that do not belong to the main content
-\pagenumbering{roman} 
 
 % Include all the pre-chapters
 \input{partials/informationpage}
 \include{partials/preface}
 \include{partials/summary_en}
-\include{partials/summary_nl_de}
-
-\input{partials/statementofauthenticity}
+\include{partials/statementofauthenticity}
 %% usual tables like table of contents, table of figures etc.
-\input{partials/preambletables}
-}
+\include{partials/preambletables}
 
 % Define arabic numbering for the pages that belong to the main content
 \pagenumbering{arabic} 
@@ -38,28 +40,24 @@
 \pagestyle{chapter-header-style}
 
 % Include chapters
-\include{chapters/chapter_1}
-\include{chapters/chapter_2}
-\include{chapters/chapter_3}
-\include{chapters/chapter_4}
-\include{chapters/chapter_5}
-\include{chapters/chapter_6}
-\include{chapters/chapter_7}
-\include{chapters/tips_and_tricks}
-\include{partials/self_reflection}
-
+\include{chapters/ch01_intro}
+\include{chapters/ch02_motivation}
+\include{chapters/ch03_mathematics}
+\include{chapters/ch04_graphics}
+\include{chapters/ch05_codelisting}
+\include{chapters/ch06_programmedgraphics}
+\include{chapters/ch07_poser}
+\include{chapters/ch08_citingsimple}
+\include{chapters/ch10_tablestables}
+\include{chapters/ch09_tips_and_tricks}
 %% supress post file when not required
-\IfFileExists{IncludeOnly.tex}{}{%
-
-% Set bibliography style to Harvard
-\bibliographystyle{abbrvnat}
+%% \IfFileExists{IncludeOnly.tex}{}{%
 
 % Add the bibliography at the end
-\bibliography{references}
+\addcontentsline{toc}{chapter}{References}
+\printbibliography[title={References}]
 
 % Add appendix
-\begin{appendices}
-	\include{partials/appendix}
-\end{appendices}
-}
+\input{partials/appendix}
+%}
 \end{document}

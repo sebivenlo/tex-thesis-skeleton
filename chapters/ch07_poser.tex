@@ -1,0 +1,75 @@
+\def\TheFile{ch07_poser.tex}
+\begin{savequote}[15cm]
+  \vspace{-30mm}
+  \raggedleft
+  \sffamily
+  Never start reading a difficult book at the wrong side.\\ 
+  It makes you feel stupid.
+  \qauthor{Private experience}
+\end{savequote}
+\chapter{Starting yourselves?} 
+
+\lstset{numberstyle={\tiny\color{red}},
+  basicstyle={\small},numbers=right,
+  rulesepcolor=\color{gray},
+  showspaces=false,frame=shadowbox}
+
+This document is indeed a bit of a showcase, but there is more to it.
+In essence, most documents are mainly texts. 
+And those plain texts take mainly typing and not much more.
+The minimal, hello world style \LaTeX\ file is not much 
+longer\footnote{Counting headers too!} then the C classic.
+\lstinputlisting[caption={Hello \LaTeX{} world}]{simple.tex}
+
+And the pictures, well they are made with other packages, and as long
+as those can produce a supported format, you can use them. \TeX\ and
+\LaTeX\ have an own drawing language, but explaining that would blow
+up this space.
+There is a lot of documentation available on \TeX\ and \LaTeX\ and I
+could recommend some good books on it.
+But you need not run off to the nearest book shop. Lots of
+documentation is on the Net, just as the \TeX\ program suite itself. 
+
+Look for instance at \url{http://www.ntg.nl} for the Dutch \TeX\ user group
+and \url{http://www.dante.de} for the German user group. They are both very 
+alive and kicking.
+
+A very good starting point nowadays is \url{http://en.wikibooks.org/wiki/LaTeX/}
+
+\section{My own definitions}
+Standard \LaTeX\ output looks a bit dull but are nicely formatted nonetheless.
+If you want to make the most of your own style for your own or your
+projects documentation, put your style definitions into a separate
+file. That way you can keep all definitions of style and \define{macros} in one
+spot. This works especially nicely in an multi part document, so
+the other files (and authors) can concentrate on content.
+
+You can \define{define} your own macros in \LaTeX. As an example a macro,
+\verb#\define#, which I use
+to let words stand out at the outer margin. I use it at the first use
+of a word or concept in the text, to aid the reader in finding the
+definition. Of course this macro could be extended to put the word
+into an index. Which makes it a nice exercise.
+\clearpage
+The macro is defined as follows:
+%\lstinputlisting[caption={The macro is defined as follows},frame=shadowbox,firstline=70,lastline=77]{mydefs.tex}
+\begin{lstlisting}[caption={The macro is defined as follows},frame=shadowbox]
+% This macro '\define' puts the argument in em 
+% and in boldface in the margin.
+\newcommand{\define}[1]{% 1 argument
+  \mbox{}{\textit{#1}}% italics or em
+  \marginpar{\raggedright% no adjust
+    \bfseries\hspace{0pt}#1}% bold
+} % end of macro
+
+\end{lstlisting}
+
+and is used as \verb#\define{new word}#.
+
+Anyway, in modern times you expect to find the examples somewhere convenient, so here you go.
+You can find this example in github at \url{https://github.com/homberghp/bachelor_thesis_tips}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

@@ -11,7 +11,7 @@
     You can find an example infopage.text file name infopage.txt-example. One approach is copy and edit the copy.
   }
 }
-\section*{\InformationPageTitle}
+\chapter*{\InformationPageTitle}
 \InfoMissingWarning
 %\section*{\InformationPageTitle}
 %% provide default values
@@ -22,9 +22,10 @@ Postbus 141, 5900 AC Venlo
 
 \vspace*{1cm}
 \noindent
-{\centering \Large\bfseries
-  \documentname
-
+{\begin{center} \Large\bfseries
+  \documentname\\
+  \subject
+\end{center}
 }
 
 \vspace{1cm}
@@ -67,4 +68,9 @@ Email: & \texttt{\href{mailto:\universitytutormail}{\universitytutormail}}\\
 \begin{infoblock}
 Non-disclosure agreement: & \hasnda
 \end{infoblock}
+
+\begin{infoblock}
+word count: & \input{wordcount.txt} words.
+\end{infoblock}
+
 \clearpage

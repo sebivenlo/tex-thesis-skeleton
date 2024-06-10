@@ -1,0 +1,21 @@
+\chapter{Include Listings}
+
+The listing in \vref{lst:proper} was included with this code
+
+\begin{lstlisting}
+\lstset{%first some settings
+  numbers=right, % number the lines
+  numberstyle={\tiny\color{gray}},frameround=tttt,framerule=1pt,rulesepcolor=\color{gray},
+  framexrightmargin=5mm
+}
+\end{lstlisting}
+
+followed by
+
+\begin{lstlisting}
+  \lstinputlisting[language=java, firstline=1,firstnumber=1,
+  lastline=39,numbers=right,basicstyle={\tiny\ttfamily},
+  caption={The proper way to show your code.}
+  ]{code/DAO.java}
+\end{lstlisting}
+      

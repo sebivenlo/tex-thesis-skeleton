@@ -1,0 +1,57 @@
+\begin{savequote}[15cm]
+  \vspace{-30mm}
+  \raggedleft
+  \sffamily
+  Tables, tables, where do I put my tables?
+  \qauthor{Anonymous}
+\end{savequote}
+\chapter{Tables, tables}
+
+Although \LaTeX\ has its strengths, it is not particularly time efficient when you want to design nice tables.
+
+A spreadsheet (excel, libreoffice calc) may serve you better than having to hand craft tables.
+
+To show what handcrafting can mean you might want to take a look at the sources of the next table.
+
+\input{tables/results_table.tex}
+
+\section{The easy way or the high way}
+
+Luckily, spreadsheets can also create good looking tables. That is their bread and butter right?
+And of course, what applies to diagrams and code listings applies here too. We want to be able to zoom in to any depth
+of our liking without landing in the world of MineCraft, so export from the spreadsheet using svg(and convert to pdf) or pdf directly. That way you can have the reviewer zoom in and select text to make his/her remarks.
+
+Here are some examples.
+
+\begin{table}
+  \caption{We commonly put table captions at the top}
+\includegraphics{tables/matrixExample-crop.pdf}   
+\end{table}
+
+Note that the \textit{enviroment} is table, but we include the table as if it were an image with includegraphics.
+
+\begin{table}
+  \caption{Another table, this time made with word, but included as pdf!}
+\includegraphics[width=\linewidth]{tables/md_prj2-crop.pdf}   
+\end{table}
+
+\begin{table}
+  \caption{ESD, still going strong?}
+\includegraphics{tables/timetable-crop.pdf}
+\end{table}
+
+
+To prepare the tables, export or print \textit{a selection} of the spreadsheet to pdf without header and footer.
+Then use pdfcrop, part of TeXLive, to crop the pdf to just the content. With cropping you remove the white space around the table, so it becomes its true size and appearance.
+
+You can embellish the table in the spreadsheet as much as you like. The fruit of that work will then be visible in its appearance in your report.
+
+All the above works for charts created with a spreadsheet too.
+
+\begin{figure}
+  \centering
+\shadowbox{\includegraphics[width=.7\linewidth]{images/all-benchmarks-crop.pdf}}
+  \caption{Benchmark results, LibreOffice calc, cropped}
+\end{figure}
+
+

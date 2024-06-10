@@ -1,0 +1,21 @@
+%% set the proper data here.
+\def\documentname{Towards a better Bachelor Thesis}
+\def\subject{Examples of proper \LaTeX\ usage for a Thesis\\With general tips on file formats for diagrams and tables}
+\def\studentname{Pietje Bell}
+\def\snumber{1234567}
+\def\place{Venlo}
+\def\course{Informatics - Business Informatics/Software Engineering}
+\def\period{Februari-2024 - June-2024}
+\def\companyname{Company Name}
+\def\companyaddress{Default Street 123}
+\def\companypostcodecity{1234 AB, Amsterdam}
+\def\companycountry{The Netherlands}
+\def\companycoach{Coach Name}
+\def\companycoachmail{coach.email@example.com}
+\def\universitytutor{Johnny Makes You Feel Good}
+\def\universitytutormail{tutor.email@fontys.nl}
+\def\examiner{Dr V. Strict}
+\def\externalexpert{A. Einstein}
+\def\hasnda{No}
+\def\keywords{Thesis Structure DRY vector format}
+

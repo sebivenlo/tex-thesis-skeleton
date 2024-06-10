@@ -1,8 +1,3 @@
-%----------------------------------------------------------
-% DO NOT TOUCH THIS FILE UNLESS YOU KNOW WHAT YOU ARE DOING
-%----------------------------------------------------------
-
-
 % environment for a two column table with proper alignment
 % usage
 % \begin{infoblock}
@@ -10,13 +5,13 @@
 % \end{infoblock}
 \newenvironment{infoblock}{
 \begin{table}[h!]
-\begin{tabular}{@{}p{0.25\textwidth}>{\bfseries}l}
+\begin{tabular}{@{}p{0.30\textwidth}>{\bfseries}l}
 }{
 \end{tabular}
 \end{table}
 }
 
-% Simple command for a fancy that attracts attention.
+% Simple command for a fancy quote that attracts attention.
 % usage:
 % \LongQuote{the text you are quoting}{the name of the author}
 % Any name can be passed (e.g. \citet{author2000text})
@@ -28,4 +23,30 @@
 
 	\textit{#2}
 \end{flushright}
+}
+
+% my own Itemize, Enumerate, and Description : a bit less spacy then the default
+\newenvironment{Itemize} {
+  \begin{itemize}{}%
+    \setlength\topsep{0ex}%
+    \setlength\parskip{0ex}%
+    \setlength\partopsep{0em}%
+    \setlength\parsep{0em}%
+    \setlength\itemsep{0em}%
+  }{\end{itemize}
+}
+\newenvironment{Enumerate}{
+  \begin{enumerate}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}}
+  {\end{enumerate}
+}
+
+\newenvironment{Description}{
+  \begin{description}
+    \setlength{\itemsep}{1pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}}
+  {\end{description}
 }

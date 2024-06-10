@@ -1,0 +1,38 @@
+\InputIfFileExists{infopage.txt}{%
+  \def\InfoMissingWarning{}
+}{%
+  \def\InfoMissingWarning{
+    
+    {\centering \Large \bf The information in this page is not correct, please
+      provide the information in the document infopage.txt in the root of this TeX project.}
+
+    You can find an example infopage.text file name infopage.txt-example. One approach is copy and edit the copy.
+  }
+}
+
+%% define a command for use in all definitions.
+\providecommand\DefInfo[1]{ define \textbackslash{}#1 in file ``./infopage.txt''}
+%% provide commmand sets a command IF NOT ALREADY defined. 
+%% Su unless a defintion is made in the infopage.txt in the root dir, the
+%% macro will tell you what to do in the printout.
+
+%% all defintions used un the infor page
+\providecommand\documentname{\DefInfo{documentname}}
+\providecommand\subject{\DefInfo{subject}}
+\providecommand\studentname{\DefInfo{studentname}}
+\providecommand\place{\DefInfo{place}}
+\providecommand\snumber{\DefInfo{snummer}}
+\providecommand\course{\DefInfo{course}}
+\providecommand\period{\DefInfo{period}}
+\providecommand\companyname{\DefInfo{CompanyName}}
+\providecommand\companyaddress{\DefInfo{CompanyAddress}}
+\providecommand\companypostcodecity{\DefInfo{companypostcodecity}}
+\providecommand\companycountry{\DefInfo{companycountry}}
+\providecommand\companycoach{\DefInfo{companycoach}}
+\providecommand\companycoachmail{\DefInfo{companycoachmail}}
+\providecommand\universitytutor{\DefInfo{universitytutor}}
+\providecommand\universitytutormail{\DefInfo{universitytutormail}}
+\providecommand\examiner{\DefInfo{examiner}}
+\providecommand\externalexpert{\DefInfo{externalexpert}}
+\providecommand\hasnda{\DefInfo{hasnda}}
+\providecommand\keywords{\DefInfo{\keywords}}
